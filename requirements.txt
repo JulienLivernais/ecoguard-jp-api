@@ -1,0 +1,7 @@
+uliweb-alembic
+fastapi
+booktype
+starlette
+sqlalchemy
+pydantic-settings
+pydantic
