@@ -1,4 +1,4 @@
-Ecoguard-jp-api (IN PROGRESS)
+Ecoguard-jp-api (In progress)
 -----
 Monitor air quality and environmental conditions across Japan in real time.
 
@@ -12,17 +12,17 @@ and a desire to design technology with real utility for society and people.
 
 Monitored Factors 
 -----
-* Air Quality / WAQI 
+**Air Quality / WAQI** 
 - Air quality is reported using the AQI (Air Quality Index), an official scale
 that aggregates multiple pollutants into a single value.
 - Source and visual reference: https://aqicn.org/scale/
 
-![AQI Table](docs/AQI-table.png)
+![AQI Table](docs/AQI_table.png)
 
 The following pollutants are also stored individually in the database to support analysis:
 PM2.5 (fine particles), PM10 (coarse particles), NO2 (nitrogen dioxide), O3 (ozone).
 
-* Weather / Open-Meteo
+**Weather / Open-Meteo**
 - Temperature and humidity are monitored via Open-Meteo and trigger independent alerts.
 - Source: https://open-meteo.com/
 
