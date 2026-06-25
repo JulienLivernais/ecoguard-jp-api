@@ -1,5 +1,4 @@
-Ecoguard-jp-api (In progress)
------
+# Ecoguard-jp-api (In progress)
 Monitor air quality and environmental conditions across Japan in real time.
 
 Get instant alerts when pollution levels or atmospheric conditions reach
