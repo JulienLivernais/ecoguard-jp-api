@@ -25,6 +25,8 @@ PM2.5 (fine particles), PM10 (coarse particles), NO2 (nitrogen dioxide), O3 (ozo
 In total, 3 alert indices are monitored with alerts — AQI, temperature and humidity —
 based on 7 environmental criteria : AQI, PM2.5, PM10, NO2, O3, temperature and humidity.
 
+Monitoring 8 major Japanese cities: Tokyo, Osaka, Kyoto, Nagoya, Sapporo, Fukuoka, Hiroshima and Sendai.
+
 Intelligent Bulletin
 -----
 On any time period, request a bulletin that analyses all available factors
