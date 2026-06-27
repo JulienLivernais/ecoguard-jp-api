@@ -44,11 +44,14 @@ API
 
 Database
 -----
-* sensor_readings
+* sensor_readings > 
 city, timestamp, aqi, pm25, pm10, no2, o3, temperature, humidity
 
-* alerts
+* alerts > 
 city, timestamp, alert_type (spike/trend), parameter, value, threshold, anomaly_score
+
+Data is appended on every hourly and never replaced, 
+the historical records are required for trend detection and bulletin analysis.
 
 Stack
 -----
