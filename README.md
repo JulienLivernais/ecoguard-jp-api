@@ -37,17 +37,17 @@ Rate limited to 3 bulletins per day per IP address.
 
 API
 -----
-GET/readings > Latest sensor readings for all cities
-GET/alerts > Latest alerts (spikes and trends)
-POST/bulletins > Generate a bulletin PDF for a given period
-GET/tasks/{task_id} > Check bulletin generation status and retrieve result
+* GET/readings > Latest sensor readings for all cities
+* GET/alerts > Latest alerts (spikes and trends)
+* POST/bulletins > Generate a bulletin PDF for a given period
+* GET/tasks/{task_id} > Check bulletin generation status and retrieve result
 
 Database
 -----
-- **sensor_readings**
+* sensor_readings
 city, timestamp, aqi, pm25, pm10, no2, o3, temperature, humidity
 
-- **alerts**
+* alerts
 city, timestamp, alert_type (spike/trend), parameter, value, threshold, anomaly_score
 
 Stack
