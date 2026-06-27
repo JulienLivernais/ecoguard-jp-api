@@ -44,10 +44,10 @@ GET/tasks/{task_id} > Check bulletin generation status and retrieve result
 
 Database
 -----
-**sensor_readings**
+- **sensor_readings**
 city, timestamp, aqi, pm25, pm10, no2, o3, temperature, humidity
 
-**alerts**
+- **alerts**
 city, timestamp, alert_type (spike/trend), parameter, value, threshold, anomaly_score
 
 Stack
