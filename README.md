@@ -15,7 +15,7 @@ that aggregates multiple pollutants into a single value.
 
 ![AQI Table](docs/AQI_table.png)
 
-The following pollutants are also stored individually in the database to support analysis:
+The following air quality components are also stored individually in the database to support analysis:
 PM2.5 (fine particles), PM10 (coarse particles), NO2 (nitrogen dioxide), O3 (ozone).
 
 2. **Weather / Open-Meteo**
