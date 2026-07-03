@@ -37,17 +37,9 @@ Bulletins contain hypotheses based on available data, not scientific conclusions
 
 Rate limited to 3 bulletins per day per IP address.
 
-**Example**
-Below is a sample bulletin generated from one week of real environmental data.
+**Example**: Below is a sample bulletin generated from one week of real environmental data.
 
 [View sample bulletin (PDF)](docs/ecoguard_bulletin.pdf)
-
-API
------
-* GET/readings > Latest sensor readings for all cities
-* GET/alerts > Latest alerts (spikes and trends)
-* POST/bulletins > Generate a bulletin PDF for a given period
-* GET/tasks/{task_id} > Check bulletin generation status and retrieve result
 
 Database
 -----
