@@ -92,7 +92,7 @@ Future Improvements
   - 151–200 Unhealthy
   - 201–300 Very Unhealthy
   - 300+ Hazardous
-* Bulletin analysis: integrate a LangChain Python REPL agent for deeper statistical analysis 
-(averages, trends, city comparisons) before the LLM synthesis
 * Bulletin output — generate richer PDF reports with visual tables and charts
-* City filtering: add query parameter to /readings and /alerts endpoints
+* City filtering: filter data by city - query parameter to /readings and /alerts endpoints
+* Deployment on railway
+
