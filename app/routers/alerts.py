@@ -7,7 +7,9 @@ from app.schemas.alert import AlertResponse
 router = APIRouter()
 
 @router.get("/alerts", response_model=list[AlertResponse])
-def get_alerts(db: Session = Depends(get_db)):
-    alerts = db.query(Alert).order_by(Alert.timestamp.desc()).limit(50).all()
-    return alerts
+def get_alerts(city: str = None, db: Session = Depends(get_db)):
+    query = db.query(Alert).order_by(Alert.timestamp.desc())
+    if city:
+        query = query.filter(Alert.city == city)
+    return query.limit(50).all()
 

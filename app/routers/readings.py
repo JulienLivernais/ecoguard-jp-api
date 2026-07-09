@@ -7,9 +7,14 @@ from app.schemas.reading import ReadingResponse
 router = APIRouter()
 
 @router.get("/readings", response_model=list[ReadingResponse])
-def get_readings(db: Session = Depends(get_db)):
-    readings = db.query(SensorReading).order_by(SensorReading.timestamp.desc()).limit(50).all()
-    return readings
+def get_readings(city: str = None, db: Session = Depends(get_db)):
+    query = db.query(SensorReading).order_by(SensorReading.timestamp.desc())
+    if city:
+        query = query.filter(SensorReading.city == city)
+    return query.limit(50).all()
+
+
+
 
 
 

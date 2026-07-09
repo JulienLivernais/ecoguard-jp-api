@@ -16,27 +16,31 @@ from langchain_openai import ChatOpenAI
 
 
 @app.task
-def generate_bulletin(date_start: str, date_end: str):
+def generate_bulletin(date_start: str, date_end: str, city: str | None = None):
     db = SessionLocal()
     try:
         start = datetime.fromisoformat(date_start)
         end = datetime.fromisoformat(date_end)
 
-        readings = (
+        query = (
             db.query(SensorReading)
             .filter(SensorReading.timestamp >= start)
             .filter(SensorReading.timestamp <= end)
             .order_by(SensorReading.timestamp.asc())
-            .all()
         )
+        if city:
+            query = query.filter(SensorReading.city == city)
+        readings = query.all()
 
-        alerts = (
+        alert_query = (
             db.query(Alert)
             .filter(Alert.timestamp >= start)
             .filter(Alert.timestamp <= end)
             .order_by(Alert.timestamp.asc())
-            .all()
         )
+        if city:
+            alert_query = alert_query.filter(Alert.city == city)
+        alerts = alert_query.all()
 
         readings_text = "Readings summary:\n"
         for r in readings:

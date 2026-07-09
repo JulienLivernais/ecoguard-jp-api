@@ -8,7 +8,8 @@ router = APIRouter()
 def create_bulletin(bulletin: BulletinCreate):
     task = generate_bulletin.delay(
         date_start=bulletin.date_start.isoformat(),
-        date_end=bulletin.date_end.isoformat()
+        date_end=bulletin.date_end.isoformat(),
+        city = bulletin.city
     )
     return {"task_id": task.id}
 

@@ -5,6 +5,7 @@ from datetime import datetime
 class BulletinBase(BaseModel):
     date_start: datetime = Field(...)
     date_end: datetime = Field(...)
+    city: str | None = None
 
 
 class BulletinCreate(BulletinBase):
