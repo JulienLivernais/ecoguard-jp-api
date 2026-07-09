@@ -84,7 +84,6 @@ Coming soon
 
 Future Improvements
 -----
-* Pytest for routers, tasks, and the anomaly detector
 * Alert thresholds: currently a single threshold per parameter. 
   Planned: multiple alerts for AQI:
   - 51–100 Moderate
@@ -92,7 +91,6 @@ Future Improvements
   - 151–200 Unhealthy
   - 201–300 Very Unhealthy
   - 300+ Hazardous
-* Bulletin output — generate richer PDF reports with visual tables and charts
 * City filtering: filter data by city - query parameter to /readings and /alerts endpoints
 * Deployment on railway
 

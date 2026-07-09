@@ -8,7 +8,7 @@ from app.core.config import settings
 from weasyprint import HTML
 import base64
 
-# PythonREPL
+# pythonREPL
 from langchain_experimental.tools import PythonREPLTool
 from langchain_classic.agents import AgentExecutor, create_react_agent
 from langchain_core.prompts import PromptTemplate
@@ -46,7 +46,8 @@ def generate_bulletin(date_start: str, date_end: str):
         for a in alerts:
             alerts_text += f"- {a.alert_type.value.upper()} | {a.city} | {a.message}\n"
 
-        # PythonREPL
+
+        # ////////////////// pythonREPL //////////////////
         llm = ChatOpenAI(model='gpt-4o-mini', temperature=0, api_key=settings.OPENAI_API_KEY)
         tools = [PythonREPLTool()]
 
@@ -101,11 +102,11 @@ def generate_bulletin(date_start: str, date_end: str):
         <head>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 40px; color: #333; }}
-            h1 {{ color: #2c5f2e; border-bottom: 2px solid #2c5f2e; padding-bottom: 8px; }}
+            h1 {{ border-bottom: 2px solid #333; padding-bottom: 8px; }}
             h2 {{ color: #555; font-size: 14px; margin-bottom: 24px; }}
-            h3 {{ color: #2c5f2e; margin-top: 32px; }}
+            h3 {{ color: #333; margin-top: 32px; }}
             table {{ width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }}
-            th {{ background-color: #2c5f2e; color: white; padding: 8px; text-align: left; }}
+            th {{ background-color: #333; color: white; padding: 8px; text-align: left; }}
             td {{ padding: 7px 8px; border-bottom: 1px solid #ddd; }}
             tr:nth-child(even) {{ background-color: #f9f9f9; }}
             .aqi-good {{ background-color: #a8d5a2; }}
@@ -132,7 +133,8 @@ def generate_bulletin(date_start: str, date_end: str):
             <tr>
                 <td>{r.city}</td>
                 <td>{r.timestamp.strftime("%Y-%m-%d %H:%M")}</td>
-                <td class="{"aqi-good" if r.aqi and r.aqi <= 50 else "aqi-moderate" if r.aqi and r.aqi <= 100 else "aqi-unhealthy" if r.aqi and r.aqi <= 150 else "aqi-very-unhealthy"}">{r.aqi}</td>
+                <td class="{"aqi-good" if r.aqi and r.aqi <= 50 else "aqi-moderate" if r.aqi and r.aqi <= 100 
+        else "aqi-unhealthy" if r.aqi and r.aqi <= 150 else "aqi-very-unhealthy"}">{r.aqi}</td>
                 <td>{r.pm25 or "—"}</td>
                 <td>{r.temperature or "—"}</td>
                 <td>{r.humidity or "—"}</td>
