@@ -14,9 +14,9 @@ app = FastAPI(
 )
 
 
-app.include_router(alerts.router)
-app.include_router(bulletins.router)
-app.include_router(readings.router)
+app.include_router(alerts.router, tags=["Readings"])
+app.include_router(bulletins.router, tags=["Alerts"])
+app.include_router(readings.router, tags=["Bulletins"])
 
 
 @app.get("/")
@@ -24,7 +24,7 @@ def root():
     return {"status": "ok"}
 
 
-@app.get("/tasks/{task_id}")
+@app.get("/tasks/{task_id}", tags=["Tasks"])
 def get_task_status(task_id: str):
     task = AsyncResult(task_id, app=celery_app)
     return {
@@ -34,7 +34,7 @@ def get_task_status(task_id: str):
     }
 
 
-@app.get("/tasks/{task_id}/download")
+@app.get("/tasks/{task_id}/download", tags=["Tasks"])
 def download_bulletin(task_id: str):
     task = AsyncResult(task_id, app=celery_app)
     if not task.ready():
