@@ -52,10 +52,9 @@ How to generate a bulletin
 -----
 1. Call POST /bulletins with a date_start / date_end, and optionally a city
 2. In the response body, find the task_id value and copy it
-3. Go to GET /tasks/{task_id} — click Try it out, paste the task_id in the field, click Execute
-4. Check the status field in the response — if PENDING, wait a few seconds and execute again
-5. Once the status is SUCCESS, go to GET /tasks/{task_id}/download
-6. Click Try it out, paste the same task_id, click execute, then click download to save the PDF
+3. Go to GET /tasks/{task_id}, click Try it out, paste the task_id in the field, click Execute
+4. Check the status field in the response (if PENDING, wait a few seconds and execute again)
+5. Once the status is SUCCESS, go to GET /tasks/{task_id}/download, click Try it out, paste the same task_id, click execute, then download to save the PDF
 
 Database
 -----
@@ -101,12 +100,5 @@ See Deployment section: the app is deployed via Docker on Railway.
 
 Future Improvements
 -----
-* Alert thresholds: currently a single threshold per parameter. 
-  Planned: multiple alerts for AQI:
-  - 51–100 Moderate
-  - 101–150 Unhealthy for sensitive groups
-  - 151–200 Unhealthy
-  - 201–300 Very Unhealthy
-  - 300+ Hazardous
 * Webhook: notify a Discord channel when an alert is detected
 
