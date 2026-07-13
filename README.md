@@ -6,6 +6,11 @@ dangerous thresholds (rule-based) or show abnormal trends over time (PyTorch ano
 and request an intelligent bulletin on any time period to explore hypotheses about what
 happened and why.
 
+Deployment
+-----
+This API is deployed on Railway.
+Swagger UI: https://ecoguard-jp-api-production.up.railway.app/docs
+
 Monitored Factors 
 -----
 1. **Air Quality / WAQI** 
@@ -42,6 +47,15 @@ Rate limited to 3 bulletins per day per IP address.
 **Example**: Below is a sample bulletin generated from a single day of real environmental data.
 
 [View sample bulletin (PDF)](docs/ecoguard_bulletin.pdf)
+
+How to generate a bulletin
+-----
+1. Call POST /bulletins with a date_start / date_end, and optionally a city
+2. In the response body, find the task_id value and copy it
+3. Go to GET /tasks/{task_id} — click Try it out, paste the task_id in the field, click Execute
+4. Check the status field in the response — if PENDING, wait a few seconds and execute again
+5. Once the status is SUCCESS, go to GET /tasks/{task_id}/download
+6. Click Try it out, paste the same task_id, click execute, then click download to save the PDF
 
 Database
 -----
@@ -81,9 +95,9 @@ Setup in Local
 9. Start the Celery worker: `celery -A worker.celery_app worker --loglevel=info --pool=solo`
 10. Open API docs: `http://localhost:8000/docs`
 
-Setup in Docker
+Setup with Docker
 -----
-Coming soon
+See Deployment section: the app is deployed via Docker on Railway.
 
 Future Improvements
 -----
@@ -94,5 +108,5 @@ Future Improvements
   - 151–200 Unhealthy
   - 201–300 Very Unhealthy
   - 300+ Hazardous
-* Deployment on railway
+* Webhook: notify a Discord channel when an alert is detected
 
