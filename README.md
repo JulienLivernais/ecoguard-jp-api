@@ -56,6 +56,11 @@ How to generate a bulletin
 4. Check the status field in the response (if PENDING, wait a few seconds and execute again)
 5. Once the status is SUCCESS, go to GET /tasks/{task_id}/download, click Try it out, paste the same task_id, click execute, then download to save the PDF
 
+Webhook
+-----
+Register a Discord webhook URL to receive real-time alerts in your Discord channel.
+Call POST /webhook with your Discord webhook URL.
+
 Database
 -----
 * sensor_readings > 
@@ -98,7 +103,5 @@ Setup with Docker
 -----
 See Deployment section: the app is deployed via Docker on Railway.
 
-Future Improvements
------
-* Webhook: notify a Discord channel when an alert is detected
+
 

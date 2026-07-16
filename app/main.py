@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import alerts, bulletins, readings
+from app.routers import alerts, bulletins, readings, webhook
 from worker.celery_app import app as celery_app
 from celery.result import AsyncResult
 from fastapi.responses import FileResponse
@@ -14,9 +14,10 @@ app = FastAPI(
 )
 
 
-app.include_router(alerts.router, tags=["Readings"])
-app.include_router(bulletins.router, tags=["Alerts"])
-app.include_router(readings.router, tags=["Bulletins"])
+app.include_router(alerts.router, tags=["Alerts"])
+app.include_router(bulletins.router, tags=["Bulletins"])
+app.include_router(readings.router, tags=["Readings"])
+app.include_router(webhook.router, tags=["Webhook"])
 
 
 @app.get("/")

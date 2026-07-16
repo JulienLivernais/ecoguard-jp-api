@@ -2,6 +2,12 @@ from worker.celery_app import app
 from app.core.database import SessionLocal
 from app.models.sensor_reading import SensorReading
 from app.models.alert import Alert, AlertType, AlertParameter
+from app.models.webhook import Webhook
+import requests
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 THRESHOLDS = {
@@ -57,6 +63,15 @@ def check_alerts(reading_id: int):
         for alert in alerts_to_save:
             db.add(alert)
         db.commit()
+
+        if alerts_to_save:
+            webhooks = db.query(Webhook).all()
+            for alert in alerts_to_save:
+                for webhook in webhooks:
+                    try:
+                        requests.post(webhook.url, json={"content": f"🚨 {alert.message}"})
+                    except Exception as e:
+                        logger.error(f"Webhook failed: {e}")
 
     finally:
         db.close()
