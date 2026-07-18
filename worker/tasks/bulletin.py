@@ -48,7 +48,7 @@ def generate_bulletin(date_start: str, date_end: str, city: str | None = None):
 
         alerts_text = "Alerts:\n"
         for a in alerts:
-            alerts_text += f"- {a.alert_type.value.upper()} | {a.city} | {a.message}\n"
+            alerts_text += f"- {a.alert_type.value.upper()} | {a.city} | {a.timestamp.strftime('%Y-%m-%d %H:%M')} | {a.message}\n"
 
 
         # ////////////////// pythonREPL //////////////////
