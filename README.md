@@ -11,6 +11,10 @@ Deployment
 This API is deployed on Railway.
 Swagger UI: https://ecoguard-jp-api-production.up.railway.app/docs
 
+CI/CD
+-----
+GitHub Actions (CI) + Railway (CD)
+
 Monitored Factors 
 -----
 1. **Air Quality / WAQI** 
