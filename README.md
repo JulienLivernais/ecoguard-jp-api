@@ -107,5 +107,9 @@ Setup with Docker
 -----
 See Deployment section: the app is deployed via Docker on Railway.
 
-
+Future Improvements & Limitations
+-----
+* LSTM model training: the anomaly detection model currently runs with untrained weights. 
+Once enough historical data has been accumulated, the model will be trained on real Japanese AQI data 
+for reliable trend detection.
 
