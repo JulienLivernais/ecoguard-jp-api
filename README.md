@@ -1,4 +1,7 @@
 # Ecoguard-jp-api
+
+![CI](https://github.com/JulienLivernais/ecoguard-jp-api/actions/workflows/ci.yml/badge.svg)
+
 Monitor air quality and environmental conditions across Japan in real time.
 
 Get instant alerts when pollution levels or atmospheric conditions reach
