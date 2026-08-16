@@ -76,7 +76,7 @@ city, timestamp, aqi, pm25, pm10, no2, o3, temperature, humidity
 * alerts > 
 city, timestamp, alert_type (spike/trend), parameter, value, threshold, anomaly_score
 
-Data is appended on every hourly and never replaced, 
+Data is appended every 6 hours and never replaced, 
 the historical records are required for trend detection and bulletin analysis.
 
 Stack

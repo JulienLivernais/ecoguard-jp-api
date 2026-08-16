@@ -20,7 +20,7 @@ app.conf.result_backend = settings.REDIS_URL
 app.conf.beat_schedule = {
     "ingest-every-hour": {
         "task": "worker.tasks.ingest.ingest_sensor_data",
-        "schedule": crontab(minute=0),
+        "schedule": crontab(hour="*/6"),
     },
 }
 
